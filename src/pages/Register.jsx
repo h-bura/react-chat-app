@@ -17,7 +17,7 @@ function Register() {
           </label>
           <button>Sign up</button>
         </form>
-        <p>You do have an account: Log in</p>
+        <p>You do have an account. Log in</p>
       </div>
     </div>
   );
