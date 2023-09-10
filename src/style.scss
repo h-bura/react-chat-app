@@ -157,6 +157,10 @@ a img,
       }
       .search {
         border-bottom: 1px solid gray;
+        span {
+          color: white;
+          padding: 10px;
+        }
         .searchForm {
           padding: 10px;
           input {

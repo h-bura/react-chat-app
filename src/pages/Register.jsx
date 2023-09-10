@@ -4,7 +4,7 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { auth, db, storage } from "../firebase";
 import { doc, setDoc } from "firebase/firestore";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Register() {
   const [err, setErr] = useState(false);
@@ -68,7 +68,9 @@ function Register() {
           <button>Sign up</button>
           {err && <span>Something went wrong</span>}
         </form>
-        <p>You do have an account. Log in</p>
+        <p>
+          You do have an account? <Link to="/login"> Log in</Link>
+        </p>
       </div>
     </div>
   );
