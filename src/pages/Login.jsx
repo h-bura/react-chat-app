@@ -22,18 +22,22 @@ function Login() {
   return (
     <div className="formContainer">
       <div className="formWrapper">
-        <span className="logo">Chat</span>
-        <span className="title">Log in</span>
+        <span className="title">User Login</span>
         <form onSubmit={handleSubmit}>
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
+          <label htmlFor="email">Email Address </label>
+          <input type="email" placeholder="Email" id="email" />
+          <label htmlFor="password">Password </label>
+          <input type="password" placeholder="Password" id="password" />
           <input style={{ display: "none" }} type="file" id="file" />
 
-          <button>Log in</button>
-          {err && <span>Something went wrong</span>}
+          <button>LOG IN</button>
+          {err && <span className="error">Something went wrong</span>}
         </form>
         <p>
-          You don't have an account? <Link to="/register">Sign up</Link>
+          Don't have an account?
+          <Link to="/register" className="link">
+            Sign up
+          </Link>
         </p>
       </div>
     </div>

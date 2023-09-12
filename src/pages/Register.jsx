@@ -19,9 +19,7 @@ function Register() {
 
     try {
       const res = await createUserWithEmailAndPassword(auth, email, password);
-      console.log("Storage Reference Display Name:", displayName);
       const storageRef = ref(storage, displayName);
-
       await uploadBytesResumable(storageRef, file).then(() => {
         getDownloadURL(storageRef).then(async (downloadURL) => {
           try {
@@ -54,22 +52,27 @@ function Register() {
   return (
     <div className="formContainer">
       <div className="formWrapper">
-        <span className="logo">Chat</span>
         <span className="title">Register</span>
         <form onSubmit={handleSubmit}>
-          <input type="text" placeholder="Name" />
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
+          <label htmlFor="name">Username</label>
+          <input type="text" placeholder="Name" id="name" />
+          <label htmlFor="email">Email</label>
+          <input type="email" placeholder="Email" id="email" />
+          <label htmlFor="password">Password</label>
+          <input type="password" placeholder="Password" id="password" />
           <input style={{ display: "none" }} type="file" id="file" />
           <label htmlFor="file">
             <img src={Add} alt=""></img>
             <span>Add an avatar</span>
           </label>
-          <button>Sign up</button>
-          {err && <span>Something went wrong</span>}
+          <button>SIGN UP</button>
+          {err && <span className="error">Something went wrong</span>}
         </form>
         <p>
-          You do have an account? <Link to="/login"> Log in</Link>
+          Already have an account?
+          <Link to="/login" className="link">
+            Log in
+          </Link>
         </p>
       </div>
     </div>

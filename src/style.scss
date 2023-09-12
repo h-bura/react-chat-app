@@ -31,7 +31,7 @@ a img,
   border: 0;
 }
 .formContainer {
-  background-color: #a7bcff;
+  background-color: lightgray;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -45,14 +45,12 @@ a img,
     gap: 10px;
     align-items: center;
 
-    .logo {
-      counter-reset: #5d5b8d;
+    .title {
+      color: #128c7e;
       font-weight: bold;
       font-size: 24px;
-    }
-    .title {
-      color: #5d5b8d;
-      font-size: 12px;
+      margin-top: 10px;
+      margin-bottom: 20px;
     }
     form {
       display: flex;
@@ -63,13 +61,13 @@ a img,
         padding: 15px;
         border: none;
         width: 250px;
-        border-bottom: 1px solid #a7bcff;
+        border-bottom: 1px solid lightgray;
         &::placeholder {
           color: rgb(175, 175, 175);
         }
       }
       button {
-        background-color: #7b96ec;
+        background-color: #128c7e;
         color: white;
         padding: 10px;
         font-weight: bold;
@@ -80,24 +78,34 @@ a img,
         display: flex;
         align-items: center;
         gap: 10px;
-        color: #8da4f1;
-        font-size: 12px;
+        color: #128c7e;
+        font-size: 16px;
         cursor: pointer;
 
         img {
           width: 32px;
         }
       }
+      .error {
+        color: red;
+      }
     }
     p {
-      color: #5d5b8d;
+      color: #128c7e;
       font-size: 12px;
       margin-top: 10px;
+      .link {
+        font-size: 14px;
+        color: #075e54;
+        font-weight: bold;
+        margin-left: 5px;
+        text-decoration: none;
+      }
     }
   }
 }
 .home {
-  background-color: #a7bcff;
+  background-color: lightgray;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -115,17 +123,20 @@ a img,
     }
     .sidebar {
       flex: 1;
-      background-color: #3e3c61;
+      background-color: #128c7e;
       position: relative;
+      @include mobile {
+        width: 130px;
+      }
 
       .navbar {
         display: flex;
         align-items: center;
-        background-color: #2f2d52;
+        background-color: #075e54;
         height: 50px;
         padding: 10px;
         justify-content: space-between;
-        color: #ddddf7;
+        color: #ece5dd;
         .logo {
           font-weight: bold;
           @include tablet {
@@ -135,18 +146,21 @@ a img,
         .user {
           display: flex;
           gap: 10px;
+          align-items: center;
           img {
-            background-color: #ddddf7;
+            background-color: #ece5dd;
             height: 24px;
             width: 24px;
             border-radius: 50%;
             object-fit: cover;
           }
           button {
-            background-color: #5d5b8d;
-            color: #ddddf7;
+            background-color: white;
+
             font-size: 10px;
             border: none;
+            padding: 4px 8px;
+            font-weight: bold;
             cursor: pointer;
             @include tablet {
               position: absolute;
@@ -156,7 +170,7 @@ a img,
         }
       }
       .search {
-        border-bottom: 1px solid gray;
+        border-bottom: 1px solid #ece5dd;
         span {
           color: white;
           padding: 10px;
@@ -169,7 +183,7 @@ a img,
             color: white;
             outline: none;
             &::placeholder {
-              color: #ddddf7;
+              color: #ece5dd;
             }
           }
         }
@@ -181,13 +195,17 @@ a img,
           color: white;
           cursor: pointer;
           &:hover {
-            background-color: #2f2d52;
+            background-color: #075e54;
           }
           img {
             width: 50px;
             height: 50px;
             border-radius: 50%;
             object-fit: cover;
+            @include mobile {
+              width: 30px;
+              height: 30px;
+            }
           }
         }
       }
@@ -200,13 +218,17 @@ a img,
           color: white;
           cursor: pointer;
           &:hover {
-            background-color: #2f2d52;
+            background-color: #075e54;
           }
           img {
             width: 50px;
             height: 50px;
             border-radius: 50%;
             object-fit: cover;
+            @include mobile {
+              width: 30px;
+              height: 30px;
+            }
           }
           .userChatInfo {
             span {
@@ -226,7 +248,7 @@ a img,
 
       .chatInfo {
         height: 50px;
-        background-color: #5d5b8d;
+        background-color: #128c7e;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -242,7 +264,7 @@ a img,
         }
       }
       .messages {
-        background-color: #ddddf7;
+        background-color: #ece5dd;
         padding: 10px;
         height: calc(100% - 160px);
         overflow: scroll;
@@ -284,7 +306,7 @@ a img,
             .messageContent {
               align-items: flex-end;
               p {
-                background-color: #8da4f1;
+                background-color: #128c7e;
                 color: white;
                 border-radius: 10px 0 10px 10px;
               }
@@ -299,31 +321,46 @@ a img,
         display: flex;
         align-items: center;
         justify-content: space-between;
+        @include mobile {
+          padding: 10px 5px;
+        }
         input {
           width: 100%;
           border: none;
           outline: none;
-          color: #2f2d52;
+          color: #075e54;
           font-size: 18px;
           &::placeholder {
             color: lightgray;
+          }
+          @include mobile {
+            font-size: 12px;
           }
         }
         .send {
           display: flex;
           align-items: center;
           gap: 10px;
+          @include mobile {
+            gap: 5px;
+          }
 
           img {
             height: 24px;
             cursor: pointer;
+            @include mobile {
+              height: 18px;
+            }
           }
           button {
             border: none;
             padding: 10px 15px;
             cursor: pointer;
             color: white;
-            background-color: #8da4f1;
+            background-color: #128c7e;
+            @include mobile {
+              padding: 5px 10px;
+            }
           }
         }
       }
